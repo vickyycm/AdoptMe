@@ -10,16 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('animals', function (Blueprint $table) {
+{
+    Schema::create('animals', function (Blueprint $table) {
         $table->id();
         $table->string('nombre');
         $table->string('especie');
         $table->integer('edad');
         $table->enum('estado', ['disponible', 'adoptado'])->default('disponible');
+        $table->string('photo')->nullable(); // Nueva columna para la foto
         $table->timestamps();
-        });
-    }
+    });
+}
 
     /**
      * Reverse the migrations.

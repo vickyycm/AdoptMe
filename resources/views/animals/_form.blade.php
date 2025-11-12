@@ -25,5 +25,15 @@
     @error('estado') <div class="text-danger">{{ $message }}</div> @enderror
 </div>
 
-<button type="submit" class="btn btn-primary">{{ $buttonText ?? 'Guardar' }}</button>
+<div class="mb-3">
+    <label for="photo" class="form-label">Foto</label>
+    <input type="file" name="photo" id="photo" class="form-control">
+    @error('photo') <div class="text-danger">{{ $message }}</div> @enderror
+</div>
+
+<form action="{{ route('animals.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @include('animals._form')
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
 <a href="{{ route('animals.index') }}" class="btn btn-secondary">Cancelar</a>
