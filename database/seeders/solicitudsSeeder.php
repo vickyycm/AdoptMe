@@ -13,11 +13,8 @@ class solicitudsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::statement("INSERT INTO solicituds (nombre, mail, id_animal) VALUES
-('Camila Torres', 'camila.torres@example.com', 3),
-('Juan Pérez', 'juanperez@example.com', 1),
-('Mariana López', 'mariana.lopez@example.com', 8),
-('Sofía Díaz', 'sofia.diaz@example.com', 12),
-('Carlos Gómez', 'carlos.gomez@example.com', 5);");
+        DB::statement("INSERT INTO `solicituds` (`id`, `nombre`, `mail`, `animal_id`, `created_at`, `updated_at`) VALUES
+(7, 'Juan', 'juan@gmail.com', 30, '2025-11-13 20:28:11', '2025-11-13 20:28:11'),
+(8, 'Pilar', 'pilimili@yahoo.com', 24, '2025-11-13 20:28:46', '2025-11-13 20:28:46');");
     }
 }

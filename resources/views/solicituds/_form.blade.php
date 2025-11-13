@@ -1,3 +1,4 @@
+<div class="container form-bottom-space">
 <form>
 <!-- this partial is included inside the real <form> in create/edit views -->
 <div class="mb-3">
@@ -26,5 +27,6 @@
 </div>
 
 <button type="submit" class="btn btn-primary">{{ $buttonText ?? 'Guardar' }}</button>
-<a href="{{ route('solicituds.index') }}" class="btn btn-secondary">Cancelar</a>
+<a href="{{ url()->previous() }}" class="btn btn-secondary me-2">Atrás</a>
 </form>
+</div>

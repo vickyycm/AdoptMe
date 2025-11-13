@@ -15,6 +15,7 @@ class Animal extends Model
         'especie',
         'edad',
         'estado',
+        'photo',
     ];
 
     // Usar timestamps (si la tabla tiene created_at/updated_at)

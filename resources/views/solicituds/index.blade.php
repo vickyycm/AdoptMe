@@ -16,38 +16,33 @@
     @if($solicituds->isEmpty())
         <p>No hay solicitudes registradas.</p>
     @else
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Mail</th>
-                    <th>Animal</th>
-                    <th>Creada</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($solicituds as $s)
-                    <tr>
-                        <td>{{ $s->id }}</td>
-                        <td>{{ $s->nombre }}</td>
-                        <td>{{ $s->mail }}</td>
-                        <td>{{ $s->animal->nombre ?? '-' }}</td>
-                        <td>{{ optional($s->created_at)->format('Y-m-d') ?? '-' }}</td>
-                        <td>
-                            <a href="{{ route('solicituds.edit', $s->id) }}" class="btn btn-sm btn-warning">Editar</a>
-
-                            <form action="{{ route('solicituds.destroy', $s->id) }}" method="POST" style="display:inline" onsubmit="return confirm('¿Eliminar esta solicitud?');">
+        <div class="row">
+            @foreach($solicituds as $s)
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm" style="border: 2px solid #4fc3f7; border-radius: 16px; background: #fffde7;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:#0288d1;">{{ $s->nombre }}</h5>
+                            <h6 class="card-subtitle mb-2" style="color:#ff9800;">{{ $s->mail }}</h6>
+                            <p class="card-text">
+                                <strong>Animal:</strong> {{ $s->animal->nombre ?? 'Sin asignar' }}<br>
+                                <strong>Creada:</strong>
+                                @if($s->created_at)
+                                    {{ $s->created_at->format('d/m/Y') }}
+                                @else
+                                    Sin fecha
+                                @endif
+                            </p>
+                            <a href="{{ route('solicituds.edit', $s->id) }}" class="btn btn-primary btn-sm">Editar</a>
+                            <form action="{{ route('solicituds.destroy', $s->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                             </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     @endif
 </div>
 @endsection
