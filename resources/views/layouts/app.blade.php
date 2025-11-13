@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdopMe</title>
+    <title>AdoptMe</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <style>
@@ -18,7 +18,7 @@ h1, h5, h6 {
     font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
 }
 .card {
-    background: #fffde7;
+    background: #fffde7;git 
     border: 1px solid #ffe082;
     border-radius: 14px;
     box-shadow: 0 2px 8px #90caf933;
