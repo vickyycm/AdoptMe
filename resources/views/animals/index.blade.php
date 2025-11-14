@@ -30,7 +30,7 @@
                             <strong>Estado:</strong> {{ ucfirst($animal->estado) }}
                         </p>
                         <a href="{{ route('animals.edit', $animal->id) }}" class="btn btn-primary btn-sm">Editar</a>
-                        <form action="{{ route('animals.destroy', $animal->id) }}" method="POST" class="d-inline">
+                        <form action="{{ route('animals.destroy', $animal->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este animal?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
