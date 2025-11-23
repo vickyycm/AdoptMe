@@ -75,4 +75,14 @@ class AnimalController extends Controller
         $animal->delete();
         return redirect()->route('animals.index')->with('success', 'Animal eliminado correctamente.');
     }
+    public function indexForUser()
+    {
+        $animals = Animal::select('id', 'nombre', 'especie', 'edad', 'estado', 'photo')->orderBy('id', 'asc')->get();
+        return view('users.animals.index', ['animals' => $animals]);
+    }
+
+    public function showForUser(Animal $animal)
+    {
+        return view('users.animals.show', compact('animal'));
+    }
 }

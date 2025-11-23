@@ -76,4 +76,15 @@ class SolicitudController extends Controller
         $solicitud->delete();
         return redirect()->route('solicituds.index')->with('success', 'Solicitud eliminada correctamente.');
     }
+
+    public function indexForUser()
+    {
+        $solicituds = Solicitud::with('animal')->orderBy('id', 'desc')->get();
+        return view('users.solicituds.index', compact('solicituds'));
+    }
+
+    public function showForUser(Solicitud $solicitud)
+    {
+        return view('users.solicituds.show', compact('solicitud'));
+    }
 }
