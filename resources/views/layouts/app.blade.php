@@ -182,6 +182,12 @@
 
             <div class="d-flex ms-auto">
                 @auth
+                @if(Auth::user()->role === 'admin')
+                <a class="btn btn-info btn-sm me-2" href="{{ route('index') }}">Foro de novedades</a>
+                @else
+                <a class="btn btn-info btn-sm me-2" href="{{ route('index') }}">Foro de novedades</a>
+                <a class="btn btn-success btn-sm me-2" href="{{ route('users.animals.index') }}">Centro de adopción</a>
+                @endif
                 <form method="POST" action="{{ route('logout') }}" class="d-inline">
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm">
@@ -189,7 +195,8 @@
                     </button>
                 </form>
                 @else
-                <a class="btn btn-primary btn-sm" href="{{ route('login') }}">Iniciar sesión</a>
+                <a class="btn btn-primary btn-sm me-2" href="{{ route('login') }}">Iniciar sesión</a>
+                <a class="btn btn-outline-primary btn-sm" href="{{ route('register') }}">Registrarse</a>
                 @endauth
             </div>
         </div>

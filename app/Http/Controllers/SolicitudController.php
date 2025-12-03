@@ -40,6 +40,11 @@ class SolicitudController extends Controller
 
         Solicitud::create($data);
 
+        // Redirigir a la lista de animales para usuarios normales
+        if (auth()->user()->role === 'user') {
+            return redirect()->route('users.animals.index')->with('success', 'Solicitud creada correctamente.');
+        }
+        // Para admin, redirigir a la lista de solicitudes
         return redirect()->route('solicituds.index')->with('success', 'Solicitud creada correctamente.');
     }
 

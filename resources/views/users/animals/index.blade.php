@@ -7,9 +7,7 @@
     @endif
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1>Listado de animales</h1>
-        <div>
-            <a href="{{ route('users.solicituds.index') }}" class="btn btn-secondary ms-2">Ver solicitudes</a>
-        </div>
+        <a href="{{ route('users.solicituds.create') }}" class="btn btn-success">Solicitar adopción</a>
     </div>
     <div class="row">
         @foreach ($animals as $animal)
