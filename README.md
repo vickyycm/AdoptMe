@@ -7,10 +7,10 @@ La propuesta se centra en facilitar la búsqueda de animales en adopción, permi
 
 ## ✨ Características Principales
 - Sitio web dinámico conectado a una base de datos MySQL.
+- Utilizamos el framework de Laravel.
 - Registro y autenticación de usuarios.
 - Visualización y filtrado de mascotas disponibles para adopción.
 - Panel de administración para gestionar el catálogo de mascotas, solicitudes y usuarios.
-- Implementado con PHP, HTML, CSS, y MySQL.
 - Proyecto diseñado para ejecutarse en entornos de servidor local (XAMPP, WAMP).
 
 ---
